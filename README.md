@@ -1,34 +1,3 @@
-<!-- ## 1️⃣ requirements.txt (minimal, correct, production-safe)
-
-Create a file named requirements.txt in your project root and paste this:
-
-streamlit>=1.32.0
-openai>=1.30.0
-
-Why only these two?
-
-streamlit → UI
-
-openai → Groq’s OpenAI-compatible client
-
-No unnecessary dependencies.
-No bloated installs.
-This is exactly what Streamlit Cloud expects.
-
-## 2️⃣ README.md — Tailored for GitHub stars 
-
-Below is a slightly upgraded version of your README that:
-
-keeps technical honesty
-
-sounds attractive to GitHub readers
-
-avoids detector hype
-
-highlights learning + real-world engineering
-
-You can replace your README.md entirely with this. -->
-
 # 🧠 AI Text Humanizer
 
 A fast, lightweight, open-source tool that rewrites text to sound more natural, clear, and human-edited — built with Streamlit and modern LLM APIs.
@@ -143,30 +112,24 @@ _*This is how real-world AI tools are built.*_
 ## ⚙️ Getting Started
 
 ### 1️⃣ Install dependencies
+#### Windows
     pip install -r requirements.txt
 
-### 2️⃣ Set your Groq API key
+### 2️⃣ Start Streamlit App
 
-#### Windows (PowerShell):
-
-    $env:GROQ_API_KEY="your_api_key_here"
-
-
-#### macOS / Linux:
-
-    export GROQ_API_KEY="your_api_key_here"
-
-
-Create a free account at 👉 https://console.groq.com
-
-### 3️⃣ Run the app
+#### Windows
     python -m streamlit run streamlit_app.py
+    
 
-<br>
 
-## Open:
 
+
+**Create a free account at 👉 https://console.groq.com**
+**Then generate an a groq API key**
+
+### Then the app will automatically open at
     http://localhost:8501
+
 
 <br>
 
@@ -196,11 +159,9 @@ Create a free account at 👉 https://console.groq.com
 
     1. Push the repo to GitHub
 
-    2. Add GROQ_API_KEY as a Streamlit secret
+    2. Deploy
 
-    3. Deploy
-
-    4. No additional configuration required.
+    3. No additional configuration required.
 <br>
 
 ## 🔍 Lessons Learned (Why This Project Is Interesting)
