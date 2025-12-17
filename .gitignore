@@ -17,3 +17,5 @@ activate
 dummy_humanizer
 uv.lock
 pyproject.toml
+.env
+.gitignore

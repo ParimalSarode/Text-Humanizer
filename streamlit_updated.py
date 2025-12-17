@@ -9,8 +9,8 @@ model_lock = threading.Lock()
 # --------------------------------------------------
 MODEL_REGISTRY = {
     "⚡ Fast & Efficient": "llama-3.1-8b-instant",
-    "✨ High Quality": "llama-3.1-70b-versatile",
-    "📄 Long Text": "mixtral-8x7b-32768",
+    "✨ High Quality": "llama-3.3-70b-versatile",
+    "📄 Long Text": "llama-3.1-8b-instant",
 }
 
 # --------------------------------------------------
@@ -33,8 +33,16 @@ if "api_key" not in st.session_state:
     st.session_state.api_key = ""
 
 # --------------------------------------------------
+# Sidebar hint state
+# --------------------------------------------------
+if "sidebar_hint_seen" not in st.session_state:
+    st.session_state.sidebar_hint_seen = False
+
+
+# --------------------------------------------------
 # Sidebar (API key + Model selector)
 # --------------------------------------------------
+st.session_state.sidebar_hint_seen = True
 with st.sidebar:
     st.markdown("### 🔐 API Configuration")
 
@@ -117,6 +125,21 @@ st.markdown("""
         border: none;
         width: 100%;
     }
+    /* Sidebar hint */
+    .sidebar-hint {
+        position: fixed;
+        top: 90px;
+        left: 12px;
+        background: #6366f1;
+        color: white;
+        padding: 8px 12px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        z-index: 9999;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -187,7 +210,7 @@ if process_btn:
                     )
 
                 st.session_state.output_text = result
-                st.rerun()
+                st.experimental_rerun()
 
             except Exception as e:
                 st.error(str(e))

@@ -6,8 +6,9 @@ Style = Literal["friendly", "casual", "professional"]
 
 def humanize(
     text: str,
-    style: Style = "friendly",
-    api_key: str | None = None,
+    style: Style,
+    api_key: str,
+    model: str,
     seed: Optional[int] = None
 ) -> str:
     if not api_key:
@@ -22,9 +23,8 @@ def humanize(
     )
 
     system_prompt = (
-        "You are a human editor. Rewrite text to sound natural, clear, "
-        "and written by a real person. Preserve the original meaning. "
-        "Avoid sounding like an assistant."
+        "You are a human editor. Rewrite the text to sound natural, "
+        "clear, and written by a real person. Preserve the meaning."
     )
 
     user_prompt = (
@@ -34,7 +34,7 @@ def humanize(
     )
 
     response = client.chat.completions.create(
-        model="llama-3.1-8b-instant",
+        model=model,   # <-- THIS IS WHY WE CHANGED THE SIGNATURE
         messages=[
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_prompt},
